@@ -1,0 +1,15 @@
+python manage.py shell
+from task1.models import Buyer
+Buyer.objects.all()
+a = Buyer.objects.get(id=8)
+a.name = 'Толик'
+a.balance = '5000.50'
+a.save()
+a_del = Buyer.objects.get(id=9)
+a_del.delete()
+age_18_30 = Buyer.objects.filter(age__gte=18, age__lte=30)
+age_18_30
+sorted_by_age = Buyer.objects.all().order_by('-age')
+sorted_by_age
+b7 = Buyer.objects.create(name="Игорь", balance=4000.00, age=57)
+b8 = Buyer.objects.create(name="Григорий", balance=7500.00, age=14)
